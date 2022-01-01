@@ -9,18 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color.blue
-            
-            HStack(alignment: .top, spacing: 100) {
-                Text("First")
+        VStack {
+            Button(action: {
+                print("tapped")
+            }, label: {
+                ButtonContent(title: "Do Something")
                 
-                Text("Second")
-                
-                Text ("Third")
-            }
+            })
+        }
+    }
+}
+
+struct ButtonContent: View {
+    var title: String
+    
+    var body: some View {
+        VStack {
+            Text("Continue")
+                .font(.system(size: 24))
+                .bold()
+                .frame(width: 220, height: 50, alignment: .center)
+                .background(Color.pink)
+                .foregroundColor(Color.white)
+                .cornerRadius(10)
             
-            Spacer()
         }
     }
 }
