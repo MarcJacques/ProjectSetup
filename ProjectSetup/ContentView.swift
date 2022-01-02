@@ -6,33 +6,11 @@
 //
 
 import SwiftUI
-
-struct ContentView: View {
-    
-    let data = [
-        "Apples", "Oranges", "Grapes", "Strawberries"
-    ]
+struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack (spacing: 20) {
-                        ForEach(0...100, id: \.self) { num in
-                            Text("Label \(num)")
-                        }
-                    }
-                }
-                
-                List(data, id: \.self) { fruit in
-                    Text(fruit)
-                }
-                
-               NavigationLink(
-                destination: Text("Second View").navigationTitle("Second"),
-                label: {
-                    ButtonContent(title: "Do Something")
-                    
-                })
+                Color.blue
             }
             .navigationTitle("Home")
             
@@ -40,19 +18,54 @@ struct ContentView: View {
     }
 }
 
-struct ButtonContent: View {
-    var title: String
-    
+struct ActivityView: View {
     var body: some View {
-        VStack {
-            Text(title)
-                .font(.system(size: 24))
-                .bold()
-                .frame(width: 220, height: 50, alignment: .center)
-                .background(Color.pink)
-                .foregroundColor(Color.white)
-                .cornerRadius(10)
+        NavigationView {
+            VStack {
+                Color.green
+                
+            }
+            .navigationTitle("Activity")
             
+        }
+    }
+}
+
+struct SettingsView: View {
+    var body: some View {
+        NavigationView {
+            VStack {
+                Color.purple
+                
+            }
+            .navigationTitle("Settings")
+        }
+    }
+}
+
+struct ContentView: View {
+    var body: some View {
+        TabView {
+           HomeView()
+                .tabItem {
+                    Image(systemName: "house")
+                    
+                    Text("Home")
+                }
+            
+            ActivityView()
+                .tabItem {
+                    Image(systemName: "bell")
+                    
+                    Text("Activity")
+                }
+            
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gear")
+                    
+                    Text("Settings")
+                }
         }
     }
 }
@@ -60,6 +73,6 @@ struct ButtonContent: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
     }
 }
