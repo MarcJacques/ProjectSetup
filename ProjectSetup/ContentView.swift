@@ -23,9 +23,9 @@ struct ContentView: View {
                     .frame(width: 300, height: 100, alignment: .center)
                     .padding()
                 
-                Button(action: {
-                    print("tapped")
-                }, label: {
+               NavigationLink(
+                destination: Text("Second View"),
+                label: {
                     ButtonContent(title: "Do Something")
                     
                 })
