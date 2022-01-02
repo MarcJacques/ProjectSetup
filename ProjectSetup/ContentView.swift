@@ -9,24 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "sun.max.fill")
-                .resizable()
-                .renderingMode(.original)
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 50, height: 50, alignment: .center)
-            Image("test")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 300, height: 100, alignment: .center)
-                .padding()
-            
-            Button(action: {
-                print("tapped")
-            }, label: {
-                ButtonContent(title: "Do Something")
+        NavigationView {
+            VStack {
+                Image(systemName: "sun.max.fill")
+                    .resizable()
+                    .renderingMode(.original)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50, alignment: .center)
                 
-            })
+                Image("test")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 100, alignment: .center)
+                    .padding()
+                
+                Button(action: {
+                    print("tapped")
+                }, label: {
+                    ButtonContent(title: "Do Something")
+                    
+                })
+            }
+            .navigationTitle("Home")
+            
         }
     }
 }
