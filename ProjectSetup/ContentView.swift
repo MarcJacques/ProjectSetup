@@ -15,6 +15,14 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack (spacing: 20) {
+                        ForEach(0...100, id: \.self) { num in
+                            Text("Label \(num)")
+                        }
+                    }
+                }
+                
                 List(data, id: \.self) { fruit in
                     Text(fruit)
                 }
