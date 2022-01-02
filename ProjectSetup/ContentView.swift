@@ -8,23 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let data = [
+        "Apples", "Oranges", "Grapes", "Strawberries"
+    ]
     var body: some View {
         NavigationView {
             VStack {
-                Image(systemName: "sun.max.fill")
-                    .resizable()
-                    .renderingMode(.original)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 50, alignment: .center)
-                
-                Image("test")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 100, alignment: .center)
-                    .padding()
+                List(data, id: \.self) { fruit in
+                    Text(fruit)
+                }
                 
                NavigationLink(
-                destination: Text("Second View"),
+                destination: Text("Second View").navigationTitle("Second"),
                 label: {
                     ButtonContent(title: "Do Something")
                     
