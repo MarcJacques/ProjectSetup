@@ -10,6 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            Image("test")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 300, height: 100, alignment: .center)
+                .padding()
+            
             Button(action: {
                 print("tapped")
             }, label: {
@@ -25,7 +31,7 @@ struct ButtonContent: View {
     
     var body: some View {
         VStack {
-            Text("Continue")
+            Text(title)
                 .font(.system(size: 24))
                 .bold()
                 .frame(width: 220, height: 50, alignment: .center)
