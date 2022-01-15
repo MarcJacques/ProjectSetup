@@ -6,18 +6,18 @@
 //
 
 import SwiftUI
-struct HomeView: View {
+struct ActivityView: View {
     var data = (0...1000).map({ "Grid Item \($0)" })
     
     var columns: [GridItem] = [
         GridItem(.fixed(100),
-                spacing: 20,
+                 spacing: 20,
                  alignment: .center),
         GridItem(.fixed(100),
-                spacing: 20,
+                 spacing: 20,
                  alignment: .center),
         GridItem(.fixed(100),
-                spacing: 20,
+                 spacing: 20,
                  alignment: .center),
     ]
     
@@ -31,7 +31,7 @@ struct HomeView: View {
                                 Circle()
                                     .frame(width: 80, height: 80, alignment: .center)
                                     .foregroundColor(Color.purple)
-                            Text(item)
+                                Text(item)
                             }.padding()
                         }
                     }
@@ -42,15 +42,38 @@ struct HomeView: View {
     }
 }
 
-struct ActivityView: View {
+struct HomeView: View {
+    @State var text = ""
+    
     var body: some View {
         NavigationView {
             VStack {
-                Color.green
+                Form {
+                    Section(header: Text("Your Info")) {
+                        TextField("First Name", text: $text)
+                            .padding()
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(10)
+                        TextField("Last Name", text: $text)
+                            .padding()
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(10)
+                        TextField("Email Address", text: $text)
+                            .padding()
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(10)
+                        TextField("Home Address", text: $text)
+                            .padding()
+                            .background(Color(.secondarySystemBackground))
+                            .cornerRadius(10)
+                    }
+                }
+                
+                Spacer()
                 
             }
+            .padding()
             .navigationTitle("Activity")
-            
         }
     }
 }
@@ -70,7 +93,7 @@ struct SettingsView: View {
 struct ContentView: View {
     var body: some View {
         TabView {
-           HomeView()
+            HomeView()
                 .tabItem {
                     Image(systemName: "house")
                     
@@ -97,6 +120,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.light)
+            .preferredColorScheme(.dark)
+            .previewInterfaceOrientation(.portraitUpsideDown)
     }
 }
