@@ -49,23 +49,17 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 Form {
-                    Section(header: Text("Your Info")) {
+                    Section(header: Text("Your Info"), footer: Text("Enter your info to create an account.")) {
                         TextField("First Name", text: $text)
-                            .padding()
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(10)
                         TextField("Last Name", text: $text)
-                            .padding()
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(10)
                         TextField("Email Address", text: $text)
-                            .padding()
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(10)
                         TextField("Home Address", text: $text)
-                            .padding()
-                            .background(Color(.secondarySystemBackground))
-                            .cornerRadius(10)
+                    }
+                    
+                    Section(header: Text("Create Password")) {
+                        SecureField("New Password", text: $text)
+                        SecureField("Confirm Password", text: $text)
+                        
                     }
                 }
                 
